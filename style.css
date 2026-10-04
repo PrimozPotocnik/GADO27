@@ -1,0 +1,192 @@
+/* GADO'27: plain, academic style */
+:root {
+  --text: #1a1a1a;
+  --muted: #555;
+  --accent: #1f3a5f;
+  --accent-light: #e8edf4;
+  --rule: #c9ced6;
+  --bg: #ffffff;
+}
+
+* { box-sizing: border-box; }
+
+html { font-size: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Georgia, "Times New Roman", Times, serif;
+  line-height: 1.6;
+}
+
+.wrap {
+  max-width: 50rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Header and navigation */
+.site-header {
+  background: var(--accent);
+  color: #fff;
+}
+
+.site-title {
+  margin: 0;
+  padding: 1rem 0 0.5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.site-title span {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: normal;
+  opacity: 0.85;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 1.75rem;
+}
+
+nav a {
+  display: block;
+  padding: 0.6rem 0;
+  text-align: center;
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+}
+
+nav a:hover,
+nav a:focus {
+  border-bottom-color: rgba(255, 255, 255, 0.6);
+}
+
+/* Reserve the width of the bold text, so that making the active tab bold
+   does not change its width or move the other tabs. */
+nav a::after {
+  content: attr(data-text);
+  display: block;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  font-weight: bold;
+}
+
+nav a[aria-current="page"] {
+  border-bottom-color: #fff;
+  font-weight: bold;
+}
+
+/* Content */
+/* main.wrap, so that this wins over the .wrap padding above */
+main.wrap { padding-top: 2.5rem; padding-bottom: 3.5rem; }
+
+h1 { font-size: 1.9rem; line-height: 1.25; margin: 0.5rem 0 0.5rem; color: var(--accent); }
+h2 { font-size: 1.35rem; margin: 2rem 0 0.5rem; padding-bottom: 0.2rem; border-bottom: 1px solid var(--rule); color: var(--accent); }
+h3 { font-size: 1.1rem; margin: 1.25rem 0 0.25rem; }
+
+.lead { font-size: 1.2rem; color: var(--muted); margin-top: 0; }
+
+a { color: var(--accent); }
+a:hover, a:focus { text-decoration-thickness: 2px; }
+
+figure { margin: 1.5rem 0; }
+figure img { display: block; width: 100%; height: auto; border: 1px solid var(--rule); }
+figcaption { font-size: 0.9rem; color: var(--muted); margin-top: 0.3rem; }
+
+
+/* Intro: title on the left, a small striped panel with the image on the right.
+   The stripes are a CSS background, so they stretch with the panel while the
+   image itself stays centred and keeps its proportions. */
+.intro {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+.intro-text { flex: 1 1 auto; }
+.hero {
+  flex: 0 0 15rem;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0.75rem;
+  border: 1px solid var(--rule);
+  background:
+    repeating-linear-gradient(
+      135deg,
+      #e3eaf3 0, #e3eaf3 24px,
+      #f4f6fa 24px, #f4f6fa 48px,
+      #ece3df 48px, #ece3df 72px,
+      #f4f6fa 72px, #f4f6fa 96px
+    );
+}
+.hero img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border: 0;
+}
+
+ul { padding-left: 1.4rem; }
+
+/* Facts list */
+.facts {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.3rem 1.5rem;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: var(--accent-light);
+}
+.facts dt { font-weight: bold; }
+.facts dd { margin: 0; }
+
+/* Tables */
+table { border-collapse: collapse; width: 100%; margin: 0.75rem 0; }
+th, td { text-align: left; vertical-align: top; padding: 0.4rem 0.75rem; border-bottom: 1px solid var(--rule); }
+thead th { border-bottom: 2px solid var(--accent); }
+tbody th { white-space: nowrap; font-weight: bold; width: 1%; }
+
+/* Placeholder notes */
+.tba { color: #8a5a00; font-style: italic; }
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  font-size: 0.9rem;
+  padding: 1rem 0;
+}
+.site-footer p { margin: 0.2rem 0; }
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+.footer-logo { flex: 0 0 auto; line-height: 0; }
+.footer-logo img { height: 3.25rem; width: auto; }
+
+@media (max-width: 36rem) {
+  .facts { grid-template-columns: 1fr; gap: 0; }
+  .facts dd { margin-bottom: 0.6rem; }
+  tbody th { white-space: normal; }
+  .footer-inner { flex-direction: column; align-items: flex-start; }
+  .intro { flex-direction: column; align-items: stretch; gap: 1rem; }
+  .hero { flex-basis: auto; align-self: center; width: 70%; }
+}
+
+@media print {
+  .site-header { background: none; color: #000; }
+  nav { display: none; }
+}

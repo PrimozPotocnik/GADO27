@@ -1,0 +1,12 @@
+# macOS / editor junk
+.DS_Store
+~$*
+*.swp
+
+# Internal working files: not part of the public website
+*.docx
+*.doc
+*.xlsx
+*.xls
+Vloga*.pdf
+_to_delete/

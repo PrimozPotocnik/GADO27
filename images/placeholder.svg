@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400" viewBox="0 0 1200 400" role="img" aria-label="Image placeholder">
+  <rect width="1200" height="400" fill="#dfe6ee"/>
+  <path d="M0 300 L220 190 L380 260 L560 150 L760 270 L940 200 L1200 290 L1200 400 L0 400 Z" fill="#c3cfdc"/>
+  <rect y="320" width="1200" height="80" fill="#b3c2d3"/>
+  <text x="600" y="190" text-anchor="middle" font-family="Georgia, serif" font-size="40" fill="#1f3a5f">Image placeholder</text>
+  <text x="600" y="235" text-anchor="middle" font-family="Georgia, serif" font-size="24" fill="#456">Replace images/placeholder.svg with a photograph of Izola</text>
+</svg>
